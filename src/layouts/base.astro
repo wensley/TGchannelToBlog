@@ -3,6 +3,7 @@ import '../assets/normalize.css'
 import '../assets/style.css'
 import '../assets/global.css'
 import { SEO } from 'astro-seo'
+import Analytics from '@vercel/analytics/astro'
 import { getEnv } from '../lib/env'
 import backToTopIcon from '../assets/back-to-top.svg'
 
@@ -79,6 +80,7 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
         navigation: auto; /* enabled */
       }
     </style>
+    <Analytics />
     <SEO
       titleTemplate={`%s | ${channel?.title}`}
       titleDefault={[channel?.title, seoParams.description].filter(Boolean).join(' - ')}
